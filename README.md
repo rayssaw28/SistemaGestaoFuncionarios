@@ -20,6 +20,8 @@ O sistema utiliza banco **H2** para persistência local e documentação automá
 
 4. Acessar o console do banco H2
 
+**O servidor será iniciado em [http://localhost:8080](http://localhost:8080/h2-console)**
+
 5. Entrar na pasta do frontend
 
 6. Instalar as dependências
