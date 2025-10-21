@@ -1,0 +1,16 @@
+/* src/app/components/funcionario-list/funcionario-list.component.css */
+
+.spinner-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  gap: 1rem;
+  color: var(--primary-color);
+}
+
+/* Adiciona um espaço entre os botões de ação na tabela */
+p-button {
+  margin-right: 5px;
+}

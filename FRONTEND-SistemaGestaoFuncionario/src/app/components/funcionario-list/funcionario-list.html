@@ -1,0 +1,71 @@
+<div class="card" style="margin: 2rem; padding: 1rem; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);">
+  <h2 style="font-family: Arial, sans-serif; color: #333;">Gestão de Funcionários</h2>
+
+  <!-- Indicador de Carregamento -->
+  <div *ngIf="carregando" style="display: flex; justify-content: center; align-items: center; padding: 3rem;">
+    <p-progressSpinner ariaLabel="loading"></p-progressSpinner>
+  </div>
+
+  <!-- Tabela de Funcionários (mostrada apenas quando não está a carregar) -->
+  <p-table
+    *ngIf="!carregando"
+    [value]="funcionarios"
+    styleClass="p-datatable-striped"
+    [paginator]="true"
+    [rows]="10"
+    [rowsPerPageOptions]="[5, 10, 20]"
+    responsiveLayout="scroll">
+
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Nome</th>
+        <th>Email</th>
+        <th>Cargo</th>
+        <th>Salário</th>
+        <th>Status</th>
+        <th style="width: 8rem">Ações</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-func>
+      <tr>
+        <td>{{ func.nome }}</td>
+        <td>{{ func.email }}</td>
+        <td>{{ func.cargo }}</td>
+        <!-- Formata o salário como moeda brasileira -->
+        <td>{{ func.salario | currency:'BRL' }}</td>
+        <td>
+          <!-- Tag visual para o status Ativo/Inativo -->
+          <p-tag
+            [severity]="func.ativo ? 'success' : 'danger'"
+            [value]="func.ativo ? 'Ativo' : 'Inativo'">
+          </p-tag>
+        </td>
+        <td>
+          <!-- Botão de Edição -->
+          <p-button
+            icon="pi pi-pencil"
+            styleClass="p-button-sm p-button-info"
+            (click)="editarFuncionario(func.id)">
+          </p-button>
+
+          <!-- Botão de Inativação -->
+          <p-button
+            icon="pi pi-times"
+            styleClass="p-button-sm p-button-danger"
+            (click)="inativarFuncionario(func.id)"
+            [disabled]="!func.ativo"
+            [style]="{ 'margin-left': '0.5rem' }">
+          </p-button>
+        </td>
+      </tr>
+    </ng-template>
+
+    <!-- Mensagem exibida quando a tabela está vazia -->
+    <ng-template pTemplate="emptymessage">
+      <tr>
+        <td colspan="6" style="text-align: center; padding: 1rem;">Nenhum funcionário encontrado.</td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+
