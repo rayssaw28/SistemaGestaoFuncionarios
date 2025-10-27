@@ -1,7 +1,0 @@
-com\sistemaGestao\sistemaGestaoFuncionario\service\FuncionarioService.class
-com\sistemaGestao\sistemaGestaoFuncionario\SistemaGestaoFuncionarioApplication.class
-com\sistemaGestao\sistemaGestaoFuncionario\repository\FuncionarioRepository.class
-com\sistemaGestao\sistemaGestaoFuncionario\dto\FuncionarioResponseDTO.class
-com\sistemaGestao\sistemaGestaoFuncionario\dto\FuncionarioRequestDTO.class
-com\sistemaGestao\sistemaGestaoFuncionario\entity\Funcionario.class
-com\sistemaGestao\sistemaGestaoFuncionario\controller\FuncionarioController.class
